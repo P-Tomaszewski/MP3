@@ -20,12 +20,15 @@ public class Trainer extends Person {
     this.licensNumber = licensNumber;
     this.trackHours = trackHours;
     if(previousPerson.areLinks(SPEC_DRIVER)){
-      ObjectPlusPlus[] obj = previousPerson.getLinks(SPEC_DRIVER);
+      ObjectPlusPlus[] obj = previousPerson.getLinks(CAR);
       ObjectPlusPlus obj1 = obj[0];
-      previousPerson.removeLink(SPEC_DRIVER, CAR, obj1);
+      previousPerson.removeLink(CAR, SPEC_DRIVER, obj1);
+      obj1.removeLink(SPEC_DRIVER, CAR, previousPerson);
     }
     this.addLink(SPEC_TRAINER, PERSON, this);
   }
+
+
 
   public String getLicensNumber () {
     return licensNumber;

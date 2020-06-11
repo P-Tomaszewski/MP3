@@ -6,17 +6,17 @@ import static dynamic.Reference.PERSON;
 import static dynamic.Reference.SPEC_DRIVER;
 
 public class Driver extends Person {
-  public String lvl;
+  public LevelOfAdvancement lvl;
   public int trackHours;
 
-  public Driver(String name, String lastName, LocalDate bornDate, String lvl, int trackHours) {
+  public Driver(String name, String lastName, LocalDate bornDate, LevelOfAdvancement lvl, int trackHours) {
     super(name, lastName, bornDate);
     this.lvl = lvl;
     this.trackHours = trackHours;
     this.addLink(SPEC_DRIVER, PERSON, this);
   }
 
-  public Driver(Person previousPerson, String lvl, int trackHours) {
+  public Driver(Person previousPerson, LevelOfAdvancement lvl, int trackHours) {
     super(previousPerson.name, previousPerson.lastName, previousPerson.bornDate);
     this.lvl = lvl;
     this.trackHours = trackHours;
@@ -24,7 +24,7 @@ public class Driver extends Person {
   }
 
   public String getLvl() {
-    return lvl;
+    return lvl.toString();
   }
 
   //Metoda polimorficzna
@@ -32,7 +32,7 @@ public class Driver extends Person {
     return trackHours;
   }
 
-  public void setLvl(String lvl) {
+  public void setLvl(LevelOfAdvancement lvl) {
     this.lvl = lvl;
   }
 

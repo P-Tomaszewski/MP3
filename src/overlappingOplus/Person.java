@@ -18,7 +18,7 @@ public class Person extends ObjectPlusPlus {
   }
 
   //osoba bedaca kierowca
-  public Person(String name, String lastName, LocalDate bornDate, String lvl, int trackHours) {
+  public Person(String name, String lastName, LocalDate bornDate, LevelOfAdvancement lvl, int trackHours) {
     super();
     this.name = name;
     this.lastName = lastName;
@@ -51,7 +51,7 @@ public class Person extends ObjectPlusPlus {
   }
 
   //tworzącej obiekt-część opisujący kierowce oraz powiązanie w ramach kompozycji.
-  public void addDriver(String lvl, int trackHours){
+  public void addDriver(LevelOfAdvancement lvl, int trackHours){
    Driver d = new Driver(lvl, trackHours);
    this.addLink(SPEC_DRIVER, PERSON, d);
   }
@@ -85,7 +85,7 @@ public class Person extends ObjectPlusPlus {
   public class Driver extends ObjectPlusPlus {
     public String name;
     public String lastName;
-    public String lvl;
+    public LevelOfAdvancement lvl;
     public int trackHours;
 
 
@@ -98,7 +98,7 @@ public class Person extends ObjectPlusPlus {
     }
 
     public String getLvl() {
-      return lvl;
+      return lvl.toString();
     }
 
     //Metoda polimorficzna
@@ -106,11 +106,11 @@ public class Person extends ObjectPlusPlus {
       return trackHours;
     }
 
-    public void setLvl(String lvl) {
+    public void setLvl(LevelOfAdvancement lvl) {
       this.lvl = lvl;
     }
 
-    private Driver(String lvl, int trackHours) {
+    private Driver(LevelOfAdvancement lvl, int trackHours) {
       super();
       this.lvl = lvl;
       this.trackHours = trackHours;
